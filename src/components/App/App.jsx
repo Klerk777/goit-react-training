@@ -1,11 +1,15 @@
 import logo from "./logo.svg";
-import "./App.css";
-import SayMyName from "../Greating/Greating";
-import getName from "../Greating/getName";
+import "./App.scss";
+import Greating from "../Greating/Greating";
+// import getName from "../Greating/getName";
 import MyClassComponent from "../MyClassComponent/MyClassComponent";
 import Counter from "../Counter/Counter";
+import Dropdown from "../Dropdown/Dropdown";
+import ColorPicker from "../ColorPicker/ColorPicker";
+import colorPickerOptions from "../ColorPicker/colorPickerOptions.json";
+import ToDo from "../ToDo/ToDo";
 
-const myName = getName();
+// const myName = getName();
 
 function App() {
   return (
@@ -17,9 +21,12 @@ function App() {
         </header>
       </div>
 
-      <SayMyName name={myName} />
+      <Greating />
       <MyClassComponent />
       <Counter step={10} initialValue={100} />
+      <Dropdown />
+      <ColorPicker options={colorPickerOptions} />
+      <ToDo />
     </>
   );
 }

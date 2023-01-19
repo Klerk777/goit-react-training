@@ -1,0 +1,6 @@
+[
+  { "id": 1, "text": "Стати джедаєм HTML/CSS", "completed": true },
+  { "id": 2, "text": "Вивчити JS", "completed": true },
+  { "id": 3, "text": "Вивчити основи React", "completed": false },
+  { "id": 4, "text": "Пережити Redux", "completed": false }
+]

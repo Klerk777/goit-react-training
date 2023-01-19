@@ -1,0 +1,26 @@
+.colorPicker {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border: 2px solid black;
+  padding: 40px;
+  margin: 0 20px 100px;
+}
+.colorPicker__options {
+  width: 100px;
+  height: 100px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  &.active {
+    scale: (1.2);
+  }
+}
+.pickedColor {
+  width: 180px;
+  font-size: 28px;
+  & span {
+    font-size: 38px;
+    font-weight: 700;
+  }
+}

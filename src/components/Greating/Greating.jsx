@@ -1,5 +1,4 @@
 import "./greating.css";
-// import getName from "./getName";
 
 export default function Greating({ name }) {
   return (
@@ -8,3 +7,7 @@ export default function Greating({ name }) {
     </div>
   );
 }
+
+Greating.defaultProps = {
+  name: "Klerk",
+};

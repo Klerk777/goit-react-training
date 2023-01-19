@@ -2,6 +2,7 @@ import styles from "./Counter.module.scss";
 import React, { Component } from "react";
 import Value from "./Value/Value";
 import Controls from "./Controls/Controls";
+import ComponentTitle from "../ComponentTitle/ComponentTitle";
 
 class Counter extends Component {
   static defaultProps = {
@@ -26,17 +27,22 @@ class Counter extends Component {
   };
 
   render() {
+    const { value } = this.state;
     const { step } = this.props;
+
     return (
-      <div className={styles.counterConteiner}>
-        <h2 className={styles.title}>Counter</h2>
-        <Value value={this.state.value} />
-        <Controls
-          step={step}
-          onDecrement={this.handleDecrement}
-          onIncrement={this.handleIncrement}
-        />
-      </div>
+      <>
+        <ComponentTitle title="Counter" />
+
+        <div className={styles.counterConteiner}>
+          <Value value={value} />
+          <Controls
+            step={step}
+            onDecrement={this.handleDecrement}
+            onIncrement={this.handleIncrement}
+          />
+        </div>
+      </>
     );
   }
 }
