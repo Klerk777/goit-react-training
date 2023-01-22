@@ -8,6 +8,7 @@ import Dropdown from "../Dropdown/Dropdown";
 import ColorPicker from "../ColorPicker/ColorPicker";
 import colorPickerOptions from "../ColorPicker/colorPickerOptions.json";
 import ToDo from "../ToDo/ToDo";
+import SignUpForm from "../SignUpForm/SignUpForm";
 
 // const myName = getName();
 
@@ -27,6 +28,7 @@ function App() {
       <Dropdown />
       <ColorPicker options={colorPickerOptions} />
       <ToDo />
+      <SignUpForm />
     </>
   );
 }

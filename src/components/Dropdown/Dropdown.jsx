@@ -7,7 +7,7 @@ export default class Dropdown extends Component {
     visible: false,
   };
 
-  togle = () => {
+  toggle = () => {
     this.setState((prevState) => ({ visible: !prevState.visible }));
   };
 
@@ -34,7 +34,7 @@ export default class Dropdown extends Component {
       <>
         <ComponentTitle title="Dropdown menu" />
         <div className={styles.dropdownConteiner}>
-          <button className={styles.btn} onClick={this.togle}>
+          <button className={styles.btn} onClick={this.toggle}>
             {visible ? "Hide" : "Show"}
           </button>
           {visible && <ul className={styles.menu}>Dropdown menu</ul>}
