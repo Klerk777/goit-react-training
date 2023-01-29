@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
-import ComponentTitle from "../ComponentTitle/ComponentTitle";
+import Section from "../ComponentTitle/Section";
 import styles from "./SignUpForm.module.scss";
 
 const Gender = {
@@ -46,8 +46,7 @@ export default class SignUpForm extends Component {
     const { login, email, password, gender, age, agreed } = this.state;
 
     return (
-      <>
-        <ComponentTitle title="SignUpForm" />
+      <Section title="SignUpForm">
         <form
           className={styles.form}
           autoComplete="on"
@@ -144,7 +143,7 @@ export default class SignUpForm extends Component {
             Sign up as {login}
           </button>
         </form>
-      </>
+      </Section>
     );
   }
 }

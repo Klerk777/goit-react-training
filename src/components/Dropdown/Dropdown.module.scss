@@ -2,7 +2,7 @@
   position: relative;
   width: 400px;
   padding: 20px;
-  margin: 0 40px 100px;
+  margin: 0 auto;
   border: 1px solid black;
 }
 .btn {
@@ -32,5 +32,9 @@
   text-align: center;
 
   color: white;
-  background-color: teal;
+  background-color: rgb(35, 36, 36);
+  text-shadow: rgb(255, 255, 255) 0px 0px 5px, rgb(255, 255, 255) 0px 0px 15px,
+    rgb(51, 249, 24) 0px 0px 20px, rgb(51, 249, 24) 0px 0px 30px,
+    rgb(51, 249, 24) 0px 0px 40px, rgb(51, 249, 24) 0px 0px 55px,
+    rgb(51, 249, 24) 0px 0px 75px, rgba(206, 89, 55, 0) 2px 2px 2px;
 }

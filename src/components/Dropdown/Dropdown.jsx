@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./Dropdown.module.scss";
-import ComponentTitle from "../ComponentTitle/ComponentTitle";
+import Section from "../ComponentTitle/Section";
 
 export default class Dropdown extends Component {
   state = {
@@ -31,15 +31,14 @@ export default class Dropdown extends Component {
     const { visible } = this.state;
 
     return (
-      <>
-        <ComponentTitle title="Dropdown menu" />
+      <Section title="Dropdown menu">
         <div className={styles.dropdownConteiner}>
           <button className={styles.btn} onClick={this.toggle}>
             {visible ? "Hide" : "Show"}
           </button>
           {visible && <ul className={styles.menu}>Dropdown menu</ul>}
         </div>
-      </>
+      </Section>
     );
   }
 }

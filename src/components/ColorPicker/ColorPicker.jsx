@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ComponentTitle from "../ComponentTitle/ComponentTitle";
+import Section from "../ComponentTitle/Section";
 import styles from "./ColorPicker.module.scss";
 
 export default class ColorPicker extends Component {
@@ -27,8 +27,7 @@ export default class ColorPicker extends Component {
     const { color } = options[activeOptionIdx];
 
     return (
-      <>
-        <ComponentTitle title="Color Picker" />
+      <Section title="Color Picker">
         <div className={styles.colorPicker}>
           <p className={styles.pickedColor}>
             Picked color: <span style={{ color: color }}>{label}</span>
@@ -42,7 +41,7 @@ export default class ColorPicker extends Component {
             ></button>
           ))}
         </div>
-      </>
+      </Section>
     );
   }
 }

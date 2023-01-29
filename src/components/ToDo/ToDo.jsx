@@ -1,17 +1,37 @@
 import React, { Component } from "react";
 import shortid from "shortid";
 import ToDoList from "./ToDoList/ToDoList";
-import initialTodos from "./data/todos.json";
-import ComponentTitle from "../ComponentTitle/ComponentTitle";
+// import initialTodos from "./data/todos.json";
+import Section from "../ComponentTitle/Section";
 import styles from "./ToDo.module.scss";
 import ToDoEditor from "./ToDoEditor/ToDoEditor";
 import Filter from "./Filter/Filter";
 
 export default class ToDo extends Component {
   state = {
-    todos: initialTodos,
+    todos: [],
     filter: "",
   };
+
+  componentDidMount() {
+    console.log("componentDidMount");
+    const parsedTodos = JSON.parse(localStorage.getItem("todos"));
+    if (parsedTodos) {
+      this.setState({ todos: parsedTodos });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { todos } = this.state;
+    console.log(
+      "componentDidUpdate! prevState vs curentState: ",
+      prevState,
+      this.state
+    );
+    if (todos !== prevState.todos) {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+  }
 
   addTodo = (text) => {
     console.log("text :>> ", text);
@@ -79,23 +99,26 @@ export default class ToDo extends Component {
 
     return (
       <>
-        <ComponentTitle title="Todo" />
-        <div className={styles.todoConteiner}>
-          <div className={styles.todoInfoConteiner}>
-            <p className={styles.info}>Загальна кількість: {totalTodoCount}</p>
-            <p className={styles.info}>Виповнених: {completedTodoCount}</p>
-            <p className={styles.info}>
-              До виконання: {totalTodoCount - completedTodoCount}
-            </p>
+        <Section title="Todo" level="1">
+          <div className={styles.todoConteiner}>
+            <div className={styles.todoInfoConteiner}>
+              <p className={styles.info}>
+                Загальна кількість: {totalTodoCount}
+              </p>
+              <p className={styles.info}>Виповнених: {completedTodoCount}</p>
+              <p className={styles.info}>
+                До виконання: {totalTodoCount - completedTodoCount}
+              </p>
+            </div>
+            <ToDoEditor onSubmit={this.addTodo} />
+            <Filter value={filter} onChange={this.changeFilter} />
+            <ToDoList
+              todos={filteredTodos}
+              onDeleteTodo={this.deleteTodo}
+              onToggleCompleted={this.toggleCompleted}
+            />
           </div>
-          <ToDoEditor onSubmit={this.addTodo} />
-          <Filter value={filter} onChange={this.changeFilter} />
-          <ToDoList
-            todos={filteredTodos}
-            onDeleteTodo={this.deleteTodo}
-            onToggleCompleted={this.toggleCompleted}
-          />
-        </div>
+        </Section>
       </>
     );
   }
