@@ -70,4 +70,8 @@
     cursor: pointer;
     background-color: rgb(209, 183, 148);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
