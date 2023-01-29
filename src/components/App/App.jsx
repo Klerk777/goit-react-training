@@ -11,6 +11,7 @@ import ToDo from "../ToDo/ToDo";
 import SignUpForm from "../SignUpForm/SignUpForm";
 import HackerNewsArticles from "../HackerNewsArticles/HackerNewsArticles";
 import Modal from "../Modal/Modal";
+import Section from "../ComponentTitle/Section";
 
 // const myName = getName();
 
@@ -37,37 +38,39 @@ export default class App extends Component {
         </div>
 
         <Greating />
+        <Section title={"Backdrop modal window"}>
+          {showModal && (
+            <Modal>
+              <div>
+                <h3>Modal</h3>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam
+                  hic magni accusamus impedit dolor. Ut, explicabo temporibus
+                  sequi et, odio, aut labore esse sunt blanditiis assumenda
+                  voluptatum quos? Praesentium, itaque.
+                </p>
+              </div>
+              <button
+                className="closeBtn"
+                type="button"
+                onClick={this.toggleModal}
+              >
+                Close
+              </button>
+            </Modal>
+          )}
+          <div>
+            <button type="button" onClick={this.toggleModal}>
+              Toggle modal
+            </button>
+          </div>
+        </Section>
         <Counter step={10} initialValue={100} />
         <Dropdown />
         <ColorPicker options={colorPickerOptions} />
         <ToDo />
         <SignUpForm />
         <HackerNewsArticles />
-        {showModal && (
-          <Modal>
-            <div>
-              <h3>Modal</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam
-                hic magni accusamus impedit dolor. Ut, explicabo temporibus
-                sequi et, odio, aut labore esse sunt blanditiis assumenda
-                voluptatum quos? Praesentium, itaque.
-              </p>
-            </div>
-            <button
-              className="closeBtn"
-              type="button"
-              onClick={this.toggleModal}
-            >
-              Close
-            </button>
-          </Modal>
-        )}
-        <div>
-          <button type="button" onClick={this.toggleModal}>
-            Toggle modal
-          </button>
-        </div>
       </>
     );
   }
