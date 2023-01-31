@@ -14,7 +14,7 @@ export default class ToDo extends Component {
   };
 
   componentDidMount() {
-    console.log("componentDidMount");
+    // console.log("ToDO >> componentDidMount");
     const parsedTodos = JSON.parse(localStorage.getItem("todos"));
     if (parsedTodos) {
       this.setState({ todos: parsedTodos });
@@ -23,11 +23,11 @@ export default class ToDo extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { todos } = this.state;
-    console.log(
-      "componentDidUpdate! prevState vs curentState: ",
-      prevState,
-      this.state
-    );
+    // console.log(
+    //   "componentDidUpdate! prevState vs curentState: ",
+    //   prevState,
+    //   this.state
+    // );
     if (todos !== prevState.todos) {
       localStorage.setItem("todos", JSON.stringify(todos));
     }
@@ -98,28 +98,24 @@ export default class ToDo extends Component {
     const filteredTodos = this.getFilteredTodos();
 
     return (
-      <>
-        <Section title="Todo" level="1">
-          <div className={styles.todoConteiner}>
-            <div className={styles.todoInfoConteiner}>
-              <p className={styles.info}>
-                Загальна кількість: {totalTodoCount}
-              </p>
-              <p className={styles.info}>Виповнених: {completedTodoCount}</p>
-              <p className={styles.info}>
-                До виконання: {totalTodoCount - completedTodoCount}
-              </p>
-            </div>
-            <ToDoEditor onSubmit={this.addTodo} />
-            <Filter value={filter} onChange={this.changeFilter} />
-            <ToDoList
-              todos={filteredTodos}
-              onDeleteTodo={this.deleteTodo}
-              onToggleCompleted={this.toggleCompleted}
-            />
+      <Section title="Todo" level="1">
+        <div className={styles.todoConteiner}>
+          <div className={styles.todoInfoConteiner}>
+            <p className={styles.info}>Загальна кількість: {totalTodoCount}</p>
+            <p className={styles.info}>Виповнених: {completedTodoCount}</p>
+            <p className={styles.info}>
+              До виконання: {totalTodoCount - completedTodoCount}
+            </p>
           </div>
-        </Section>
-      </>
+          <ToDoEditor onSubmit={this.addTodo} />
+          <Filter value={filter} onChange={this.changeFilter} />
+          <ToDoList
+            todos={filteredTodos}
+            onDeleteTodo={this.deleteTodo}
+            onToggleCompleted={this.toggleCompleted}
+          />
+        </div>
+      </Section>
     );
   }
 }

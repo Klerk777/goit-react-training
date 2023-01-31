@@ -24,7 +24,7 @@ export default class HackerNewsArticles extends Component {
 
   async componentDidUpdate(prevProps, prevState) {
     const { query } = this.state;
-    console.log("prevState", prevState);
+    // console.log("prevState", prevState);
 
     if (prevState.query === this.state.query) {
       return;

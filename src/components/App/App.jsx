@@ -12,6 +12,9 @@ import SignUpForm from "../SignUpForm/SignUpForm";
 import HackerNewsArticles from "../HackerNewsArticles/HackerNewsArticles";
 import Modal from "../Modal/Modal";
 import Section from "../ComponentTitle/Section";
+import Clock from "../Clock/Clock";
+import Tabs from "../Tabs/Tabs";
+import tabs from "../Tabs/data/tabs.json";
 
 // const myName = getName();
 
@@ -19,6 +22,10 @@ export default class App extends Component {
   state = {
     showModal: false,
   };
+
+  componentDidMount() {
+    console.log("App >> componentDidMount");
+  }
 
   toggleModal = () => {
     this.setState(({ showModal }) => ({
@@ -28,6 +35,7 @@ export default class App extends Component {
 
   render() {
     const { showModal } = this.state;
+
     return (
       <>
         <div className="App">
@@ -38,9 +46,15 @@ export default class App extends Component {
         </div>
 
         <Greating />
-        <Section title={"Backdrop modal window"}>
+        <Section title="Clock">
+          <Clock />
+        </Section>
+        <Section title="Tabs">
+          <Tabs items={tabs} />
+        </Section>
+        <Section title="Backdrop modal window">
           {showModal && (
-            <Modal>
+            <Modal onClose={this.toggleModal}>
               <div>
                 <h3>Modal</h3>
                 <p>
