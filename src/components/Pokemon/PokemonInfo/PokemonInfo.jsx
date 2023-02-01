@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import PokemonDataView from "../PokemonDataView/PokemonDataView";
+import PokemonErrorView from "../PokemonErrorView/PokemonErrorView";
+import PokemonPendingView from "../PokemonPendingView/PokemonPendingView";
+import pokemonAPI from "../services/pokemon-api";
 
+const Status = {
+  IDLE: "idle",
+  PENDING: "pending",
+  RESOLVED: "resolved",
+  REJECTED: "rejected",
+};
 export default class PokemonInfo extends Component {
   state = {
     pokemon: null,
     error: null,
-    status: "idle",
+    status: Status.IDLE,
   };
 
   componentDidUpdate(pP, pS) {
@@ -13,23 +22,17 @@ export default class PokemonInfo extends Component {
     const nextPokemonName = this.props.pokemonName;
 
     if (prevPokemonName !== nextPokemonName) {
-      this.setState({ status: "pending" });
-      fetch(`https://pokeapi.co/api/v2/pokemon/${nextPokemonName}`)
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
+      this.setState({ status: Status.PENDING });
 
-          return Promise.reject(
-            new Error(`There is no Pokemon with name ${nextPokemonName}`)
-          );
-        })
+      pokemonAPI
+        .fetchPokemonById(nextPokemonName)
         .then((pokemon) => this.setState({ pokemon, status: "resolved" }))
         .catch((error) => this.setState({ error, status: "rejected" }));
     }
   }
   render() {
     const { pokemon, error, status } = this.state;
+    const { pokemonName } = this.props;
 
     if (status === "idle") {
       return <div>Enter pokemon's name</div>;
