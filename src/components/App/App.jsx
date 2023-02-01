@@ -15,6 +15,7 @@ import Section from "../ComponentTitle/Section";
 import Clock from "../Clock/Clock";
 import Tabs from "../Tabs/Tabs";
 import tabs from "../Tabs/data/tabs.json";
+import Pokemon from "../Pokemon/Pokemon";
 
 // const myName = getName();
 
@@ -84,7 +85,10 @@ export default class App extends Component {
         <ColorPicker options={colorPickerOptions} />
         <ToDo />
         <SignUpForm />
-        <HackerNewsArticles />
+        {/* <HackerNewsArticles /> */}
+        <Section title="Pokemon">
+          <Pokemon />
+        </Section>
       </>
     );
   }
