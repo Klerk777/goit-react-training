@@ -26,8 +26,8 @@ export default class PokemonInfo extends Component {
 
       pokemonAPI
         .fetchPokemonById(nextPokemonName)
-        .then((pokemon) => this.setState({ pokemon, status: "resolved" }))
-        .catch((error) => this.setState({ error, status: "rejected" }));
+        .then((pokemon) => this.setState({ pokemon, status: Status.RESOLVED }))
+        .catch((error) => this.setState({ error, status: Status.REJECTED }));
     }
   }
   render() {
