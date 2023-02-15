@@ -1,0 +1,23 @@
+.pockemonBox {
+  display: flex;
+  flex-direction: column;
+}
+.id {
+  align-self: center;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  line-height: 118px;
+  font-size: 60px;
+  font-weight: 700;
+  background-color: blanchedalmond;
+  border-radius: 50%;
+  color: rgb(44, 44, 202);
+}
+.pockemonName {
+  font-size: 32px;
+  text-shadow: 0px 0px 5px rgba(202, 32, 152, 0.75),
+    2px 2px 20px rgba(213, 95, 212, 0.71),
+    -2px -2px 20px rgba(213, 95, 212, 0.71);
+}
