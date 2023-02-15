@@ -16,6 +16,7 @@ import Clock from "../Clock/Clock";
 import Tabs from "../Tabs/Tabs";
 import tabs from "../Tabs/data/tabs.json";
 import Pokemon from "../Pokemon/Pokemon";
+import FeadbackForm from "../FeadbackForm/FeadbackForm";
 
 // const myName = getName();
 
@@ -88,6 +89,9 @@ export default class App extends Component {
         {/* <HackerNewsArticles /> */}
         <Section title="Pokemon">
           <Pokemon />
+        </Section>
+        <Section title="FeadbackForm">
+          <FeadbackForm />
         </Section>
       </>
     );
